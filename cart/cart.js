@@ -17,7 +17,6 @@ const cart = (() => {
 
     const addToCart = (product) => {
         if (!cartItems.find(item => item.pid === product.pid)) {
-            // Since we handle one product at a time, clear the cart first.
             cartItems = [product]; 
             saveCartToStorage();
             updateCartUI();
@@ -45,11 +44,16 @@ const cart = (() => {
             paypalContainer.style.display = 'none';
         } else {
             cartContent.innerHTML = '';
+            
+            const isProductPage = window.location.pathname.includes('/products/');
+
             cartItems.forEach(item => {
+                const imagePath = isProductPage ? `../${item.image}` : item.image;
+
                 const itemElement = document.createElement('div');
                 itemElement.className = 'cart-item';
                 itemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <img src="${imagePath}" alt="${item.name}" class="cart-item-img">
                     <div class="cart-item-details"><p>${item.name}</p><p>$${item.price}</p></div>
                     <button class="cart-item-remove-btn" data-pid="${item.pid}">&times;</button>
                 `;
@@ -74,8 +78,6 @@ const cart = (() => {
         paypalContainer.innerHTML = '';
         paypal.Buttons({
             createOrder: (data, actions) => {
-                // This function now calls your backend to create a PayPal order.
-                // Shipping details are NOT collected on the frontend.
                 return new Promise((resolve, reject) => {
                     const callbackName = 'createOrderCallback' + Date.now();
                     window[callbackName] = (order) => {
@@ -90,8 +92,6 @@ const cart = (() => {
                 });
             },
             onApprove: (data, actions) => {
-                // This function calls your backend to capture the order.
-                // Shipping details are retrieved by your backend from the PayPal order details.
                 return new Promise((resolve, reject) => {
                     const callbackName = 'captureOrderCallback' + Date.now();
                     window[callbackName] = (details) => {
@@ -111,7 +111,6 @@ const cart = (() => {
                     };
                     const script = document.createElement('script');
                     script.id = callbackName;
-                    // No need to send shipping details from the frontend anymore.
                     script.src = `${gasWebAppUrl}?action=capture-paypal-order&orderID=${data.orderID}&callback=${callbackName}`;
                     document.body.appendChild(script);
                 });
@@ -121,13 +120,13 @@ const cart = (() => {
 
     const init = () => {
         const cartContainer = document.getElementById('cart-container');
-        // Use a relative path that works from both root and /products/ directory
+        if (!cartContainer) return;
+
         fetch(window.location.pathname.includes('/products/') ? '../cart/cart.html' : './cart/cart.html')
             .then(res => res.text())
             .then(html => {
-                if(cartContainer) cartContainer.innerHTML = html;
+                cartContainer.innerHTML = html;
                 
-                // Assign elements after they are loaded
                 cartIcon = document.getElementById('cart-icon');
                 cartCount = document.getElementById('cart-count');
                 cartSidebar = document.getElementById('cart-sidebar');
@@ -136,7 +135,6 @@ const cart = (() => {
                 cartContent = document.getElementById('cart-content');
                 paypalContainer = document.getElementById('paypal-button-container');
 
-                // Setup listeners
                 if (cartIcon) cartIcon.addEventListener('click', openCart);
                 if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
                 if (overlay) overlay.addEventListener('click', closeCart);
@@ -148,7 +146,6 @@ const cart = (() => {
                     });
                 }
 
-                // Initial state
                 loadCartFromStorage();
                 updateCartUI();
             }).catch(err => console.error("Failed to load cart HTML:", err));
