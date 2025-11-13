@@ -6,7 +6,8 @@ const products = [
         name: "15W Apple Wireless Charger",
         price: "34.99", // This is the TOTAL price from the user's screenshot (product + shipping)
         pageUrl: "products/3-in-1-charger.html",
-        image: "/products/images/3-in-1-charger.png"
+        // REMOVED the leading slash from the image path
+        image: "products/images/3-in-1-charger.png" 
     }
     // To add a new product, copy the object above and change the details.
 ];

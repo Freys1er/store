@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freyster - The Future of Tech</title>
+    <!-- Corrected relative paths -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cart/cart.css">
 </head>
@@ -12,7 +13,8 @@
 <body>
     <header>
         <nav>
-            <a href="/" class="logo">freyster.dev</a>
+            <!-- Corrected path to root -->
+            <a href="index.html" class="logo">freyster.dev</a>
             <div class="cart-icon-container">
                 <svg id="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                     class="cart-icon">
@@ -33,14 +35,13 @@
 
     <!-- Cart placeholder. cart.js will inject the real cart here. -->
     <div id="cart-container"></div>
-
-    <!-- PayPal SDK - IMPORTANT: Use your Sandbox Client ID -->
     <script
         src="https://www.paypal.com/sdk/js?client-id=AatDob9V-rAdtsmwud9Tikz-8nk9_M8f0T3u6-6zDquetAkcegjh-nYRu1pvjFYUzFAVdbxZ1ClRbdTS&currency=USD"></script>
-    <!-- Core Scripts -->
-    <script src="../products/products.js"></script> <!-- Load product data first -->
-    <script src="../cart/cart.js"></script> <!-- Load cart logic -->
-    <script src="../script.js"></script> <!-- Load homepage-specific logic -->
+
+    <!-- Corrected relative paths -->
+    <script src="products/products.js"></script>
+    <script src="cart/cart.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
