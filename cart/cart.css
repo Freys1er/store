@@ -1,0 +1,29 @@
+/* --- Cart Sidebar Styles --- */
+.cart-sidebar { position: fixed; top: 0; right: -420px; width: 100%; max-width: 420px; height: 100%; background-color: var(--secondary-background); box-shadow: -5px 0 15px rgba(0,0,0,0.5); transition: right 0.3s ease-in-out; z-index: 1001; display: flex; flex-direction: column; }
+.cart-sidebar.open { right: 0; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--border-color); }
+.cart-header h2 { font-size: 1.5rem; }
+.close-btn { background: none; border: none; color: var(--text-color); font-size: 2rem; cursor: pointer; }
+.cart-content { padding: 1.5rem; flex-grow: 1; overflow-y: auto; }
+.cart-item { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+.cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+.cart-item-details { flex-grow: 1; }
+.cart-item-remove-btn { background: none; border: none; color: #888; cursor: pointer; font-size: 1.2rem; }
+
+/* Shipping Form */
+.shipping-form-container { padding: 1.5rem; border-top: 1px solid var(--border-color); }
+#shipping-form { display: flex; flex-direction: column; gap: 0.8rem; }
+#shipping-form input, #shipping-form select { width: 100%; padding: 0.8rem; background-color: #333; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-size: 1rem; }
+.paypal-container { padding: 1.5rem; border-top: 1px solid var(--border-color); }
+.empty-cart-message { text-align: center; color: #888; padding-top: 2rem; }
+.customer-service { padding: 1rem 1.5rem; text-align: center; font-size: 0.9rem; color: #a1a1a6; border-top: 1px solid var(--border-color);}
+
+/* Overlay */
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: none; z-index: 1000; }
+.overlay.visible { display: block; }
+
+/* Cart Icon */
+.cart-icon-container { position: relative; cursor: pointer; }
+.cart-icon { width: 28px; height: 28px; }
+.cart-count { position: absolute; top: -5px; right: -8px; background-color: var(--primary-color); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; font-weight: bold; transform: scale(0); transition: transform 0.2s ease-out; }
+.cart-count.visible { transform: scale(1); }
