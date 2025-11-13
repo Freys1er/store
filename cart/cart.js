@@ -138,7 +138,7 @@ const cart = (() => {
 
     const init = () => {
         const cartContainer = document.getElementById('cart-container');
-        fetch('/cart/cart.html')
+        fetch('cart.html')
             .then(res => res.text())
             .then(html => {
                 cartContainer.innerHTML = html;
