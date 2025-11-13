@@ -12,6 +12,8 @@
     z-index: 1001;
     display: flex;
     flex-direction: column;
+    /* ADD THIS: Prevents the entire sidebar from trying to scroll */
+    overflow: hidden; 
 }
 
 .cart-sidebar.open {
@@ -24,6 +26,8 @@
     align-items: center;
     padding: 1.5rem;
     border-bottom: 1px solid var(--border-color);
+    /* This ensures the header does not shrink */
+    flex-shrink: 0;
 }
 
 .cart-header h2 {
@@ -40,8 +44,12 @@
 
 .cart-content {
     padding: 1.5rem;
-    flex-grow: 1;
-    overflow-y: auto;
+    /* THIS IS THE KEY: It will grow to fill available space */
+    flex-grow: 1; 
+    /* THIS IS THE KEY: It will only scroll when its content overflows */
+    overflow-y: auto; 
+    /* ADD THIS: A flexbox fix to ensure proper shrinking and scrolling */
+    min-height: 0; 
 }
 
 .cart-item {
@@ -74,6 +82,8 @@
 .paypal-container {
     padding: 1.5rem;
     border-top: 1px solid var(--border-color);
+    /* This ensures the footer does not shrink */
+    flex-shrink: 0;
 }
 
 .empty-cart-message {
@@ -88,6 +98,8 @@
     font-size: 0.9rem;
     color: #a1a1a6;
     border-top: 1px solid var(--border-color);
+    /* This ensures the footer does not shrink */
+    flex-shrink: 0;
 }
 
 /* Overlay */
