@@ -4,7 +4,7 @@ const cart = (() => {
     let cartItems = [];
 
     // --- DOM ELEMENTS ---
-    let cartIcon, cartCount, cartSidebar, closeCartBtn, overlay, cartContent, paypalContainer, shippingFormContainer;
+    let cartIcon, cartCount, cartSidebar, closeCartBtn, overlay, cartContent, paypalContainer;
 
     const loadCartFromStorage = () => {
         const storedCart = localStorage.getItem('freysterCart');
@@ -17,7 +17,8 @@ const cart = (() => {
 
     const addToCart = (product) => {
         if (!cartItems.find(item => item.pid === product.pid)) {
-            cartItems.push(product);
+            // Since we handle one product at a time, clear the cart first.
+            cartItems = [product]; 
             saveCartToStorage();
             updateCartUI();
             openCart();
@@ -34,12 +35,13 @@ const cart = (() => {
     };
 
     const updateCartUI = () => {
+        if (!cartCount || !cartContent || !paypalContainer) return;
+
         cartCount.textContent = cartItems.length;
         cartCount.classList.toggle('visible', cartItems.length > 0);
 
         if (cartItems.length === 0) {
             cartContent.innerHTML = '<p class="empty-cart-message">Your cart is empty.</p>';
-            shippingFormContainer.innerHTML = '';
             paypalContainer.style.display = 'none';
         } else {
             cartContent.innerHTML = '';
@@ -53,26 +55,9 @@ const cart = (() => {
                 `;
                 cartContent.appendChild(itemElement);
             });
-            renderShippingForm();
-            renderPayPalButton(cartItems[0].pid); // Assuming one item at a time for now
+            renderPayPalButton(cartItems[0].pid); 
             paypalContainer.style.display = 'block';
         }
-    };
-    
-    const renderShippingForm = () => {
-        shippingFormContainer.innerHTML = `
-            <h3>Shipping Details</h3>
-            <form id="shipping-form">
-                <input type="text" name="customerName" placeholder="Full Name" required>
-                <input type="email" name="customerEmail" placeholder="Email Address" required>
-                <input type="text" name="address" placeholder="Street Address" required>
-                <input type="text" name="city" placeholder="City" required>
-                <input type="text" name="province" placeholder="State / Province" required>
-                <input type="text" name="zip" placeholder="ZIP / Postal Code" required>
-                <select name="countryCode" required><option value="">Select Country</option><option value="US">United States</option><option value="CA">Canada</option></select>
-                <input type="tel" name="customerPhone" placeholder="Phone Number (Optional)">
-            </form>
-        `;
     };
 
     const openCart = () => {
@@ -89,11 +74,8 @@ const cart = (() => {
         paypalContainer.innerHTML = '';
         paypal.Buttons({
             createOrder: (data, actions) => {
-                const shippingForm = document.getElementById('shipping-form');
-                if (!shippingForm || !shippingForm.checkValidity()) {
-                    alert("Please fill out all required shipping details.");
-                    return actions.reject();
-                }
+                // This function now calls your backend to create a PayPal order.
+                // Shipping details are NOT collected on the frontend.
                 return new Promise((resolve, reject) => {
                     const callbackName = 'createOrderCallback' + Date.now();
                     window[callbackName] = (order) => {
@@ -108,14 +90,15 @@ const cart = (() => {
                 });
             },
             onApprove: (data, actions) => {
-                const shippingForm = document.getElementById('shipping-form');
-                const shippingDetails = Object.fromEntries(new FormData(shippingForm).entries());
+                // This function calls your backend to capture the order.
+                // Shipping details are retrieved by your backend from the PayPal order details.
                 return new Promise((resolve, reject) => {
                     const callbackName = 'captureOrderCallback' + Date.now();
                     window[callbackName] = (details) => {
                         delete window[callbackName];
                         document.body.removeChild(document.getElementById(callbackName));
                         if (details.error) {
+                            alert('There was an error processing your payment.');
                             reject(details.error);
                         } else {
                             alert('Transaction complete! Thank you, ' + details.payer.name.given_name + '.');
@@ -128,8 +111,8 @@ const cart = (() => {
                     };
                     const script = document.createElement('script');
                     script.id = callbackName;
-                    const shippingParam = encodeURIComponent(JSON.stringify(shippingDetails));
-                    script.src = `${gasWebAppUrl}?action=capture-paypal-order&orderID=${data.orderID}&shipping=${shippingParam}&callback=${callbackName}`;
+                    // No need to send shipping details from the frontend anymore.
+                    script.src = `${gasWebAppUrl}?action=capture-paypal-order&orderID=${data.orderID}&callback=${callbackName}`;
                     document.body.appendChild(script);
                 });
             }
@@ -138,10 +121,12 @@ const cart = (() => {
 
     const init = () => {
         const cartContainer = document.getElementById('cart-container');
-        fetch('cart.html')
+        // Use a relative path that works from both root and /products/ directory
+        fetch(window.location.pathname.includes('/products/') ? '../cart/cart.html' : './cart/cart.html')
             .then(res => res.text())
             .then(html => {
-                cartContainer.innerHTML = html;
+                if(cartContainer) cartContainer.innerHTML = html;
+                
                 // Assign elements after they are loaded
                 cartIcon = document.getElementById('cart-icon');
                 cartCount = document.getElementById('cart-count');
@@ -150,22 +135,23 @@ const cart = (() => {
                 overlay = document.getElementById('overlay');
                 cartContent = document.getElementById('cart-content');
                 paypalContainer = document.getElementById('paypal-button-container');
-                shippingFormContainer = document.getElementById('shipping-form-container');
 
                 // Setup listeners
-                cartIcon.addEventListener('click', openCart);
-                closeCartBtn.addEventListener('click', closeCart);
-                overlay.addEventListener('click', closeCart);
-                cartContent.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('cart-item-remove-btn')) {
-                        removeFromCart(e.target.dataset.pid);
-                    }
-                });
+                if (cartIcon) cartIcon.addEventListener('click', openCart);
+                if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+                if (overlay) overlay.addEventListener('click', closeCart);
+                if (cartContent) {
+                    cartContent.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('cart-item-remove-btn')) {
+                            removeFromCart(e.target.dataset.pid);
+                        }
+                    });
+                }
 
                 // Initial state
                 loadCartFromStorage();
                 updateCartUI();
-            });
+            }).catch(err => console.error("Failed to load cart HTML:", err));
     };
 
     return { init, addToCart };

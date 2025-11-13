@@ -126,7 +126,7 @@
         <section class="showcase-section" style="background-color: #000;">
             <h2>The 3-in-1 Charging Station.</h2>
             <p class="lead">One cable. Three devices. Zero clutter.</p>
-            <img class="showcase-image" src="images/3-in-1-charger.png" alt="3-in-1 Wireless Charger for Apple Devices">
+            <img class="showcase-image" src="../products/images/3-in-1-charger.png" alt="3-in-1 Wireless Charger for Apple Devices">
         </section>
 
         <!-- Section 2: Feature - The Design -->
@@ -135,7 +135,7 @@
             <p class="lead">Crafted from soft-touch matte plastic, our foldable charging station is built for both your
                 desk and your travels. The magnetic connection ensures a perfect alignment every time.</p>
 
-            <img class="showcase-image" src="images/3-in-1-charger-flat.png" alt="3-in-1 Wireless Charger for Apple Devices">
+            <img class="showcase-image" src="../products/images/3-in-1-charger-flat.png" alt="3-in-1 Wireless Charger for Apple Devices">
         </section>
 
         <!-- Section 3: Feature - The Power -->
@@ -145,16 +145,16 @@
                 provides temperature control and voltage protection, ensuring your gear is always safe.</p>
             <div class="dual-image-layout">
 
-                <img class="showcase-image" src="images/3-in-1-charger-opened.png"
+                <img class="showcase-image" src="../products/images/3-in-1-charger-opened.png"
                     alt="3-in-1 Wireless Charger for Apple Devices">
 
-                <img class="showcase-image" src="images/3-in-1-charger-putting-away.png"
+                <img class="showcase-image" src="../products/images/3-in-1-charger-putting-away.png"
                     alt="3-in-1 Wireless Charger for Apple Devices">
             </div>
         </section>
 
         <!-- Section 4: Call to Action / Price -->
-        <section class="showcase-section price-section">
+        <section class="showcase-section price-section" style="background-color: var(--background-color)";>
             <h2>Ready to simplify your life?</h2>
             <div class="price-add-to-cart">
                 <span class="price">$34.99</span>
@@ -166,9 +166,11 @@
     <!-- Cart placeholder. cart.js will inject the real cart here. -->
     <div id="cart-container"></div>
 
-    <!-- PayPal SDK -->
+    <!-- 
+        PayPal SDK - IMPORTANT: Replace 'YOUR_LIVE_CLIENT_ID' with your actual Live Client ID from the PayPal Developer Dashboard.
+    -->
     <script
-        src="https://www.paypal.com/sdk/js?client-id=AVBs7Dc8nGP3mFedMUl3bK8pVUU5x3Vdg1qHNI_6JyqndL8BVouhhrqC9abEzJuP575nxFJrCB-Ua7Hn&currency=USD"></script>
+        src="https://www.paypal.com/sdk/js?client-id=AatDob9V-rAdtsmwud9Tikz-8nk9_M8f0T3u6-6zDquetAkcegjh-nYRu1pvjFYUzFAVdbxZ1ClRbdTS&currency=USD"></script>
     <!-- Core Scripts - Use relative paths -->
     <script src="../products/products.js"></script>
     <script src="../cart/cart.js"></script>

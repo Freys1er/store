@@ -18,16 +18,18 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    font-size: 16px; /* Base font size for better readability */
 }
 
 /* --- Header & Nav --- */
 header {
     padding: 1rem 5%;
     background-color: rgba(29, 29, 31, 0.9);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav {
@@ -40,7 +42,7 @@ nav {
 
 .logo {
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-decoration: none;
     color: var(--text-color);
 }
@@ -49,19 +51,19 @@ nav {
 .homepage-main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 1rem;
+    padding: 5rem 1.5rem;
     text-align: center;
 }
 
 .homepage-main h1 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
 }
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .product-card-link {
@@ -74,12 +76,14 @@ nav {
     border-radius: 18px;
     overflow: hidden;
     text-align: left;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid transparent; /* Prepare for hover effect */
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    border-color: var(--border-color);
 }
 
 .product-card-image {
@@ -93,12 +97,12 @@ nav {
 }
 
 .product-card-name {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
 }
 
 .product-card-price {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #a1a1a6;
     margin-top: 0.5rem;
 }
