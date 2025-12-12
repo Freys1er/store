@@ -1,0 +1,80 @@
+/* assets/css/components/_module-card.css */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 80px 60px; /* More vertical gap */
+}
+
+/* NEW: This is the core of the new design */
+.module-item {
+    position: relative;
+    padding-top: 60px; /* Push content down to reveal background title */
+}
+
+/* NEW: The faint background text */
+.module-background-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 600;
+    color: #F0F0F0;
+    z-index: 1;
+    pointer-events: none; /* Allows clicks to go through it */
+    text-transform: uppercase;
+}
+
+/* Make sure info sits on top */
+.module-info {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* REMOVED .module-visual styles as they are no longer used */
+
+.module-info h3 {
+    font-size: 20px;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.module-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+    color: var(--color-gray-primary);
+    min-height: 48px; /* Give it a fixed height to align buttons */
+}
+
+.module-header {
+    display: flex;
+    justify-content: center; /* Center items now */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* UPDATED details link to match the sample */
+.details-link {
+    display: inline-block;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-gray-border);
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-blue);
+    background-color: var(--color-light);
+    transition: all 0.2s ease;
+}
+
+.details-link:hover {
+    border-color: var(--color-accent-blue);
+    background-color: var(--color-accent-blue-light);
+}

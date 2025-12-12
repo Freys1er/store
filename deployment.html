@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPLOYMENT // FREYSTER</title>
+    <!-- Ensure you have the Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="deployment-body">
+
+    <header class="deployment-header">
+        <a href="index.html" class="logo">FREYSTER</a>
+    </header>
+
+    <main class="deployment-wrapper">
+        <!-- PROGRESS BAR -->
+        <div class="progress-bar">
+            <div class="progress-step active" data-step="1"><span>01 / KIT CONFIRMATION</span></div>
+            <div class="progress-step" data-step="2"><span>02 / OPERATOR DETAILS</span></div>
+            <div class="progress-step" data-step="3"><span>03 / FINALIZE</span></div>
+        </div>
+
+        <!-- STEP 1: FIELD KIT -->
+        <section id="step-1" class="deployment-step active">
+            <div class="step-content-grid">
+                <div class="kit-items">
+                    <div id="kit-item-list">
+                        <!-- JS will render cart items here -->
+                    </div>
+                </div>
+                <div class="kit-summary">
+                    <div class="summary-box">
+                        <h3>SUMMARY</h3>
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Shipping</span>
+                            <span>Calculated at next step</span>
+                        </div>
+                        <div class="summary-line total">
+                            <span>Total</span>
+                            <span id="summary-total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-nav">
+                <button class="next-btn" data-target="2">Next: Operator Details</button>
+            </div>
+        </section>
+
+        <!-- STEP 2: OPERATOR DETAILS -->
+        <section id="step-2" class="deployment-step">
+            <h2>OPERATOR DETAILS</h2>
+            <form id="shipping-form" class="shipping-form">
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="text" id="address" placeholder="Street Address" required>
+                <input type="text" id="city" placeholder="City" required>
+                <input type="text" id="zip" placeholder="ZIP / Postal Code" required>
+                <input type="text" id="country" placeholder="Country" required>
+            </form>
+            <div class="step-nav">
+                <button class="back-btn" data-target="1">Back to Kit</button>
+                <button class="next-btn" data-target="3">Next: Finalize</button>
+            </div>
+        </section>
+
+        <!-- STEP 3: FINALIZE & DEPLOY -->
+        <section id="step-3" class="deployment-step">
+            <h2>FINALIZE & DEPLOY</h2>
+             <div class="step-content-grid">
+                <div class="final-summary">
+                    <h4>OPERATOR DETAILS</h4>
+                    <p id="final-details">Details will be displayed here.</p>
+                    <h4>FIELD KIT</h4>
+                    <p id="final-kit">Items will be listed here.</p>
+                </div>
+                <div class="payment-placeholder">
+                    <div id="paypal-button-container">
+                        <p>Secure payment module will be initialized here.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="step-nav">
+                <button class="back-btn" data-target="2">Back to Details</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/deployment.js"></script>
+</body>
+</html>

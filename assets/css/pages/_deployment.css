@@ -1,0 +1,214 @@
+/* assets/css/pages/_deployment.css */
+
+.deployment-body {
+    background-color: var(--color-light);
+}
+
+.deployment-header {
+    padding: 40px;
+    border-bottom: 1px solid var(--color-dark);
+}
+
+.deployment-wrapper {
+    max-width: 900px; /* Make the content area more focused */
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+/* --- Progress Bar --- */
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the steps */
+    margin-bottom: 80px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-gray-border);
+}
+
+.progress-step {
+    font-family: var(--font-sans-serif);
+    font-size: 12px;
+    font-weight: var(--font-weight-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gray-secondary);
+    position: relative;
+    padding: 0 20px;
+}
+
+.progress-step.active {
+    color: var(--color-dark);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Remove the line; we use typography to show progress */
+.progress-line {
+    display: none;
+}
+
+/* --- Step Content --- */
+.deployment-step {
+    display: none;
+}
+
+.deployment-step.active {
+    display: block;
+}
+
+.deployment-step h2 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.step-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+}
+
+/* --- Kit Items & Summary --- */
+.kit-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-gray-border);
+}
+
+.kit-item-visual {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-dark);
+}
+
+.kit-item-info h4 {
+    font-family: var(--font-sans-serif);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+}
+
+.kit-item-info p {
+    color: var(--color-gray-primary);
+}
+
+.kit-item-remove-btn {
+    font-size: 20px;
+    color: var(--color-gray-secondary);
+}
+
+.summary-box {
+    border: 1px solid var(--color-dark);
+    padding: 30px;
+}
+
+.summary-box h3 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-gray-border);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.summary-line.total {
+    font-weight: var(--font-weight-bold);
+    font-size: 16px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-dark);
+}
+
+/* --- Form Fields --- */
+.shipping-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto; /* Center the form */
+}
+
+.shipping-form input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--color-dark);
+    font-family: var(--font-sans-serif);
+    font-size: 16px;
+}
+
+/* --- Step Navigation Buttons --- */
+.step-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-gray-border);
+}
+
+.next-btn, .back-btn {
+    border: 1px solid var(--color-dark);
+    padding: 15px 40px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.next-btn {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.next-btn:hover {
+    background-color: var(--color-gray-primary);
+    border-color: var(--color-gray-primary);
+}
+
+.back-btn {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.back-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- Final Summary --- */
+.final-summary {
+    border: 1px solid var(--color-gray-border);
+    padding: 30px;
+}
+.final-summary h4 {
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.final-summary p {
+    color: var(--color-gray-primary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.payment-placeholder {
+    padding: 30px;
+    text-align: center;
+    border: 1px dashed var(--color-gray-border);
+}

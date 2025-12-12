@@ -4,44 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freyster - The Future of Tech</title>
-    <!-- Corrected relative paths -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cart/cart.css">
+    <title>FREYSTER // Tactical Engineering</title>
+    <!-- In the <head> of all HTML files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+
+    <!-- Your main stylesheet link remains the same -->
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
+<!-- index.html -->
+
 <body>
-    <header>
-        <nav>
-            <!-- Corrected path to root -->
-            <a href="index.html" class="logo">freyster.dev</a>
-            <div class="cart-icon-container">
-                <svg id="cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    class="cart-icon">
-                    <path
-                        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-                </svg>
-                <span id="cart-count" class="cart-count">0</span>
+
+    <!-- This is the container for the modal, hidden by default -->
+    <div id="cart-modal-container"></div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+
+        <!-- HEADER -->
+        <header class="site-header">
+            <div class="logo">FREYSTER</div>
+            <nav class="site-nav">
+                <a href="#inventory">INVENTORY</a>
+                <button id="cart-button">FIELD KIT (<span id="cart-count">0</span>)</button>
+            </nav>
+        </header>
+
+        <!-- NEW PAGE TITLE SECTION (REPLACES HERO) -->
+        <section class="page-title-section">
+            <h1 class="animate-on-scroll">TACTICAL ENGINEERING</h1>
+            <p class="animate-on-scroll" style="transition-delay: 0.2s;">Over-engineered modules designed for permanence
+                and peak performance.</p>
+            <a href="#inventory" class="explore-link animate-on-scroll" style="transition-delay: 0.4s;">EXPLORE
+                INVENTORY</a>
+        </section>
+
+        <!-- INVENTORY SECTION -->
+        <section id="inventory" class="inventory-section">
+            <h2 class="animate-on-scroll">AVAILABLE MODULES</h2>
+            <div class="module-grid">
+
+                <!-- Module 1: M-SPEC PAD -->
+                <div class="module-item animate-on-scroll">
+                    <div class="module-background-title">M-SPEC PAD</div>
+                    <div class="module-info">
+                        <div class="module-header">
+                            <h3>15W M-SPEC PAD</h3>
+                            <button class="quick-add-btn" onclick="cart.addToCart('CJSJ212415202BY')"
+                                title="Add to Field Kit">+</button>
+                        </div>
+                        <p>Monolithic aluminum chassis. Zero thermal throttling.</p>
+                        <a href="products/m-spec-pad.html" class="details-link">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Module 2: KEY ORGANIZER -->
+                <div class="module-item animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="module-background-title">KEY ORGANIZER</div>
+                    <div class="module-info">
+                        <div class="module-header">
+                            <h3>TITANIUM KEY ORGANIZER</h3>
+                            <button class="quick-add-btn" onclick="cart.addToCart('TI-KEY-ORG-001')"
+                                title="Add to Field Kit">+</button>
+                        </div>
+                        <p>Grade 5 titanium construction. Silent carry protocol.</p>
+                        <a href="products/key-organizer.html" class="details-link">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Module 3: MISSION CABLE -->
+                <div class="module-item animate-on-scroll" style="transition-delay: 0.4s;">
+                    <div class="module-background-title">MISSION CABLE</div>
+                    <div class="module-info">
+                        <div class="module-header">
+                            <h3>MISSION-READY CABLE</h3>
+                            <button class="quick-add-btn" onclick="cart.addToCart('AR-CABLE-002')"
+                                title="Add to Field Kit">+</button>
+                        </div>
+                        <p>Aramid fiber core with 3-ply braiding. Zero tangling.</p>
+                        <a href="products/mission-cable.html" class="details-link">View Details</a>
+                    </div>
+                </div>
+
             </div>
-        </nav>
-    </header>
+        </section>
 
-    <main class="homepage-main">
-        <h1>Curated Tech for Modern Life</h1>
-        <div id="product-list" class="product-grid">
-            <!-- Products will be loaded here by script.js -->
-        </div>
-    </main>
+        <!-- FOOTER -->
+        <footer class="site-footer-bottom">
+            &copy; 2025 FREYSTER // TACTICAL ENGINEERING DIVISION
+        </footer>
 
-    <!-- Cart placeholder. cart.js will inject the real cart here. -->
-    <div id="cart-container"></div>
-    <script
-        src="https://www.paypal.com/sdk/js?client-id=AatDob9V-rAdtsmwud9Tikz-8nk9_M8f0T3u6-6zDquetAkcegjh-nYRu1pvjFYUzFAVdbxZ1ClRbdTS&currency=USD"></script>
+    </div> <!-- END MAIN WRAPPER -->
 
-    <!-- Corrected relative paths -->
-    <script src="products/products.js"></script>
-    <script src="cart/cart.js"></script>
-    <script src="script.js"></script>
+    <!-- LOGIC SCRIPTS (NO CHANGES) -->
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

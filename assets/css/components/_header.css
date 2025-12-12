@@ -1,0 +1,21 @@
+/* assets/css/components/_header.css */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    font-weight: var(--font-weight-normal);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.logo {
+    font-weight: var(--font-weight-bold);
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}

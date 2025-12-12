@@ -1,0 +1,54 @@
+/* assets/css/components/_buttons.css */
+.site-nav button {
+    border: 1px solid var(--color-dark);
+    padding: 10px 20px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.quick-add-btn {
+    border: 1px solid var(--color-gray-border);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--color-gray-secondary);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.quick-add-btn:hover {
+    border-color: var(--color-dark);
+    color: var(--color-dark);
+}
+
+.details-link {
+    display: inline-block;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-gray-border);
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-blue);
+    background-color: var(--color-light);
+    transition: all 0.2s ease;
+}
+
+.details-link:hover {
+    border-color: var(--color-accent-blue);
+    background-color: var(--color-accent-blue-light);
+}
+
+@keyframes cart-flash-animation {
+    0% { border-color: var(--color-dark); }
+    50% { border-color: var(--color-accent-blue); box-shadow: 0 0 10px var(--color-accent-blue); }
+    100% { border-color: var(--color-dark); }
+}
+
+.cart-flash {
+    animation: cart-flash-animation 0.5s ease-in-out;
+}

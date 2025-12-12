@@ -1,0 +1,77 @@
+/* assets/css/pages/_product-dossier.css */
+.product-dossier-section {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 80px;
+    padding: 80px 0;
+    min-height: 80vh;
+}
+
+.product-visual-large {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--color-dark);
+}
+
+.product-details h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.product-details .price {
+    font-size: 1.5rem;
+    color: var(--color-gray-primary);
+    margin-bottom: 30px;
+}
+
+.product-details .description {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    border-top: 1px solid var(--color-gray-border);
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+.spec-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-secondary);
+}
+
+.spec-item p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: var(--font-weight-normal);
+}
+
+.dossier-acquire-btn {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    color: var(--color-light);
+    font-size: 16px;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dossier-acquire-btn:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}

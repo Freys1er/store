@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-SPEC PAD // FREYSTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Note the relative path to the CSS file -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="cart-modal-container"></div>
+
+    <div class="main-wrapper">
+
+        <!-- HEADER (same as index, but with corrected paths) -->
+        <header class="site-header">
+            <a href="../index.html" class="logo">FREYSTER</a>
+            <nav class="site-nav">
+                <a href="../index.html#inventory">INVENTORY</a>
+                <button id="cart-button">FIELD KIT (<span id="cart-count">0</span>)</button>
+            </nav>
+        </header>
+
+        <!-- PRODUCT DOSSIER SECTION -->
+        <section class="product-dossier-section">
+            <div class="product-visual-large animate-on-scroll">
+                <!-- Your high-fidelity Blender render goes here -->
+            </div>
+            <div class="product-details animate-on-scroll" style="transition-delay: 0.2s;">
+                <h1>15W M-SPEC PAD</h1>
+                <p class="price">$34.99 USD</p>
+                <p class="description">
+                    The M-SPEC Pad is CNC-machined from a single block of aerospace-grade aluminum. 
+                    The monolithic chassis acts as a superior passive thermal sink, ensuring zero power 
+                    degradation or throttling under sustained load.
+                </p>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <h4>CHASSIS</h4>
+                        <p>6061-T6 Aluminum</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>INTERFACE</h4>
+                        <p>USB-C</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>OUTPUT</h4>
+                        <p>15W Max Qi</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>PROFILE</h4>
+                        <p>7mm</p>
+                    </div>
+                </div>
+                <button class="dossier-acquire-btn" onclick="cart.addToCart('CJSJ212415202BY')">ACQUIRE MODULE</button>
+            </div>
+        </section>
+
+        <!-- FOOTER (same as index) -->
+        <footer class="site-footer-bottom">
+            &copy; 2025 FREYSTER // TACTICAL ENGINEERING DIVISION
+        </footer>
+    </div>
+
+    <!-- SCRIPT files with corrected paths -->
+    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

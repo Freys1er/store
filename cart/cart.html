@@ -1,18 +1,15 @@
-<!-- This content will be dynamically injected into pages -->
-<div id="overlay" class="overlay"></div>
-<div id="cart-sidebar" class="cart-sidebar">
-    <div class="cart-header">
-        <h2>Your Cart</h2>
-        <button id="close-cart-btn" class="close-btn">&times;</button>
-    </div>
-    <div id="cart-content" class="cart-content">
-        <!-- Cart items will be injected here -->
-    </div>
-    <div class="customer-service">
-        <p>Questions? Contact us:</p>
-        <p><strong>Email:</strong> freyster.dev@gmail.com</p>
-    </div>
-    <div id="paypal-button-container" class="paypal-container">
-        <!-- PayPal button will be rendered here when cart is not empty -->
+<!-- cart/cart.html -->
+<div class="cart-modal-overlay" id="overlay">
+    <div class="cart-modal-content">
+        <div class="cart-header">
+            <h2>FIELD KIT</h2>
+            <button class="close-btn" id="close-cart-btn">&times;</button>
+        </div>
+        <div id="cart-content">
+            <!-- JS injects cart items here -->
+        </div>
+         <div id="paypal-button-container" style="margin-top: 20px;">
+            <!-- PayPal buttons will render here -->
+        </div>
     </div>
 </div>

@@ -1,0 +1,72 @@
+/* assets/css/base/_typography.css */
+body, html {
+    font-family: var(--font-sans-serif);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.hero-section h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}
+
+.hero-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 450px;
+    margin-bottom: 40px;
+}
+
+.inventory-section h2 {
+    font-size: 24px;
+    font-weight: var(--font-weight-normal);
+    text-align: center;
+    margin-bottom: 80px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.site-footer-bottom {
+    text-align: center;
+    padding: 60px 0;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-secondary);
+}
+
+.page-title-section {
+    padding: 80px 0;
+    text-align: center;
+}
+.page-title-section h1 {
+    font-family: var(--font-serif); /* Use serif font for headings */
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}
+.page-title-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 450px;
+    margin: 0 auto 30px auto;
+}
+.page-title-section .explore-link {
+    font-weight: var(--font-weight-normal);
+    text-decoration: underline;
+    letter-spacing: 0.05em;
+}

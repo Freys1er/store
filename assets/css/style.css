@@ -1,0 +1,15 @@
+/* assets/css/style.css */
+
+/* 1. BASE STYLES */
+@import url('base/_reset.css');
+@import url('base/_variables.css');
+@import url('base/_typography.css');
+
+/* 2. REUSABLE COMPONENTS */
+@import url('components/_header.css');
+@import url('components/_buttons.css');
+@import url('components/_module-card.css');
+
+/* 3. PAGE-SPECIFIC LAYOUTS */
+@import url('pages/_product-dossier.css');
+@import url('pages/_deployment.css');
